@@ -10,6 +10,7 @@
  *
  * @link              https://veritate.wowperations.com.br
  * @since             0.1.0
+ * @package Veritate_Fact_Check_Crawler
  *
  * @wordpress-plugin
  * Plugin Name:       Veritate - Fact Check Crawler
@@ -38,150 +39,53 @@
  * along with WooCommerce PagSeguro. If not, see
  * <https://www.gnu.org/licenses/gpl-2.0.txt>.
  *
- * @package Veritate_Fact_Check_Crawler
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 
-if ( ! class_exists( 'Veritate_Fact_Check_Crawler' ) ) {
+/**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-veritate-fact-check-crawler-activator.php
+ */
+function activate_plugin_name() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-veritate-fact-check-crawler-activator.php';
+	Veritate_Fact_Check_Crawler_Activator::activate();
+}
 
-    /**
-     * WooCommerce PagSeguro Tinker main class.
-     */
-    class Veritate_Fact_Check_Crawler {
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-veritate-fact-check-crawler-deactivator.php
+ */
+function deactivate_plugin_name() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-veritate-fact-check-crawler-deactivator.php';
+	Veritate_Fact_Check_Crawler_Deactivator::deactivate();
+}
 
-        /**
-         * Plugin version.
-         *
-         * @var string
-         */
-        protected $version = '0.1.0';
+register_activation_hook( __FILE__, 'activate_plugin_name' );
+register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
 
-        /**
-         * Plugin slug.
-         *
-         * @var string
-         */
-        protected $plugin_name = 'veritate-fact-check-crawler';
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-veritate-fact-check-crawler.php';
 
-        /**
-         * Instance of this class.
-         *
-         * @var object
-         */
-        protected static $instance = null;
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    0.1.0
+ */
+function run_plugin_name() {
 
-        /**
-         * Initialize the plugin public actions.
-         */
-        private function __construct() {
-            // Load plugin text domain.
-            add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-            add_action( 'wp_enqueue_scripts', array( $this, 'manage_public_assets') );
-
-            // TODO
-            //add_filter( 'wc_get_template', array( $this, 'filter_pagseguro_payment_method_markup') 20, 5 );
-
-
-        }
-
-        /**
-         * Return an instance of this class.
-         *
-         * @return object A single instance of this class.
-         */
-        public static function get_instance() {
-            // If the single instance hasn't been set, set it now.
-            if ( null === self::$instance ) {
-                self::$instance = new self;
-            }
-
-            return self::$instance;
-        }
-
-        /**
-         * Get includes path.
-         *
-         * @return string
-         */
-        public static function get_includes_path() {
-            return plugin_dir_path( __FILE__ ) . 'includes/';
-        }
-
-        /**
-         * Load the plugin text domain for translation.
-         */
-        public function load_plugin_textdomain() {
-            load_plugin_textdomain( 'veritate-fact-check-crawler', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-        }
-
-        /**
-         * Registers Fact Check Custom Post Type
-         */
-        public function register_fact_check_cpt() {
-
-
-        }
-
-        /**
-         * populate custom post type fact check fields
-         * subclass específica para cada veículo extendendo uma "interface"?
-         */
-        public function map_item_fields( $outlet , $item) {
-
-            // calls parse_apify_json class específica do outlet
-        }
-
-        /**
-         * Create a new fack check item
-         */
-        public function create_item( $data) {
-            // gera hash do campo conteúdo
-            // cria post
-
-        }
-
-        /**
-         * Process outlet results
-         */
-        public function process_outlet_crawl_results( $outlet_name) {
-            // define qual json pegar
-            // pega json
-            // parse json into array
-            // for each item
-                // checa se url está no array de OUTLETNAME_last_processed_items (10 itens)
-                // se sim, return
-                // se não
-                // padroniza o array baseado no OUTLETNAME usando map_item_fields
-                // cria objeto create_item
-            // limpar caches usando uma classe específica que verifca o ambiente, inicialmente com WPE cache
-
-        }
-
-        /**
-         * Process all outlets
-         */
-        public function process_outlet( $outlet_name) {
-            // define qual json pegar
-            // pega json
-            // parse json into array
-            // for each item
-                // checa se url está no array de OUTLETNAME_last_processed_items (10 itens)
-                // se sim, return
-                // se não
-                // padroniza o array baseado no OUTLETNAME usando map_item_fields
-                // cria objeto create_item
-            // limpar caches usando uma classe específica que verifca o ambiente, inicialmente com WPE cache
-
-        }
-
-
-
-
-    }
-
-    add_action( 'plugins_loaded', array( 'Veritate_Fact_Check_Crawler', 'get_instance' ) );
+	$plugin = new Veritate_Fact_Check_Crawler();
+	$plugin->run();
 
 }
+run_plugin_name();
