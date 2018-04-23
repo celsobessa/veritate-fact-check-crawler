@@ -5,7 +5,7 @@
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
- * @link       https://veritate.wowperations.com.br
+ * @link       https://veritatecrawler.wowperations.com.br
  * @since      0.1.0
  *
  * @package    Veritate_Fact_Check_Crawler

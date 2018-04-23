@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://veritate.wowperations.com.br
+ * @link       https://veritatecrawler.wowperations.com.br
  * @since      0.1.0
  *
  * @package    Veritate_Fact_Check_Crawler
@@ -58,6 +58,15 @@ class Veritate_Fact_Check_Crawler {
 	protected $version;
 
 	/**
+	 * An instance of the plugin's utilities
+	 *
+	 * @since    0.1.0
+	 * @access   protected
+	 * @var      string    $utilities    An instance of the plugin's utilities
+	 */
+	protected $utilities;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -85,6 +94,7 @@ class Veritate_Fact_Check_Crawler {
 	 *
 	 * - Veritate_Fact_Check_Crawler_Loader. Orchestrates the hooks of the plugin.
 	 * - Veritate_Fact_Check_Crawler_i18n. Defines internationalization functionality.
+	 * - Veritate_Fact_Check_Crawler_Utilities. Defines the all plugin utilities used on back and front ends.
 	 * - Veritate_Fact_Check_Crawler_Admin. Defines all hooks for the admin area.
 	 * - Veritate_Fact_Check_Crawler_Public. Defines all hooks for the public side of the site.
 	 *
@@ -109,9 +119,9 @@ class Veritate_Fact_Check_Crawler {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-veritate-fact-check-crawler-i18n.php';
 
 		/**
-		 * The class responsible for defining all utilites used in both public and admin areas.
+		 * The class responsible for defining all utilities used in both public and admin areas.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-veritate-fact-check-crawler-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-veritate-fact-check-crawler-utilities.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
@@ -123,6 +133,8 @@ class Veritate_Fact_Check_Crawler {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-veritate-fact-check-crawler-public.php';
+
+		$this->utilities = new Veritate_Fact_Check_Crawler_Utilities( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader = new Veritate_Fact_Check_Crawler_Loader();
 
@@ -154,11 +166,10 @@ class Veritate_Fact_Check_Crawler {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Veritate_Fact_Check_Crawler_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Veritate_Fact_Check_Crawler_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_utilities() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
+		// $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		// $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 	}
 
 	/**
@@ -170,11 +181,10 @@ class Veritate_Fact_Check_Crawler {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Veritate_Fact_Check_Crawler_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Veritate_Fact_Check_Crawler_Public( $this->get_plugin_name(), $this->get_version(), $this->get_utilities() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
+		$this->loader->add_action( 'template_redirect', $plugin_public, 'veritate_headless_redirect' );
+		$this->loader->add_action( 'rest_endpoints', $plugin_public, 'veritate_rest_endpoints' );
 	}
 
 	/**
@@ -215,6 +225,16 @@ class Veritate_Fact_Check_Crawler {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	/**
+	 * Retrieve the plugin utitlies.
+	 *
+	 * @since     0.1.0
+	 * @return    string    The version number of the plugin.
+	 */
+	public function get_utilities() {
+		return $this->utilities;
 	}
 
 }

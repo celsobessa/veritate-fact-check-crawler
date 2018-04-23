@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://veritate.wowperations.com.br
+ * @link       https://veritatecrawler.wowperations.com.br
  * @since      0.1.0
  *
  * @package    Veritate_Fact_Check_Crawler
@@ -55,49 +55,70 @@ class Veritate_Fact_Check_Crawler_Public {
 	}
 
 	/**
-	 * Register the stylesheets for the public-facing side of the site.
+	 * Redirect All WordPress frontend requests to the home
 	 *
-	 * @since    0.1.0
+	 * Redirect All WordPress frontend requests to home, except for WP Rest API endpoints.
+	 * This function is also declared in Veritate API Theme as fallback and these redirection
+	 * will also be declared in .htaccess/.htconfig and in reverse-proxy layer (Nginx or Cloudflare)
+	 *
+	 * @since 0.1.0
 	 */
-	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Veritate_Fact_Check_Crawler_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Veritate_Fact_Check_Crawler_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/veritate-fact-check-crawler-public.css', array(), $this->version, 'all' );
-
+	public function veritate_headless_redirect() {
+		if ( ! is_front_page() ) {
+			wp_redirect( home_url() );
+			exit;
+		}
 	}
 
 	/**
-	 * Register the JavaScript for the public-facing side of the site.
+	 * Disable undesired WP Rest API Endpoints
 	 *
-	 * @since    0.1.0
+	 * Disables some unused/undesired WP Rest API endpoints.
+	 * This function is also declared in Veritate API Theme as fallback and these redirection.
+	 *
+	 * @since  0.1.0
+	 * @param  array $endpoints an array with all registered REST API Endpoints.
+	 *
+	 * @return array $endpoints an filtered array of all registered REST API Endpoints.
 	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Veritate_Fact_Check_Crawler_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Veritate_Fact_Check_Crawler_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/veritate-fact-check-crawler-public.js', array( 'jquery' ), $this->version, false );
-
+	public function veritate_rest_endpoints( $endpoints ) {
+		if ( isset( $endpoints['/wp/v2/users'] ) ) {
+			unset( $endpoints['/wp/v2/users'] );
+		}
+		if ( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) ) {
+			unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
+		}
+		if ( isset( $endpoints['/wp/v2/pages'] ) ) {
+			unset( $endpoints['/wp/v2/pages'] );
+		}
+		if ( isset( $endpoints['/wp/v2/pages/(?P<id>[\d]+)'] ) ) {
+			unset( $endpoints['/wp/v2/pages/(?P<id>[\d]+)'] );
+		}
+		if ( isset( $endpoints['/wp/v2/media'] ) ) {
+			unset( $endpoints['/wp/v2/media'] );
+		}
+		if ( isset( $endpoints['/wp/v2/media/(?P<id>[\d]+)'] ) ) {
+			unset( $endpoints['/wp/v2/media/(?P<id>[\d]+)'] );
+		}
+		if ( isset( $endpoints['/wp/v2/types'] ) ) {
+			unset( $endpoints['/wp/v2/types'] );
+		}
+		if ( isset( $endpoints['/wp/v2/types/(?P<id>[\d]+)'] ) ) {
+			unset( $endpoints['/wp/v2/types/(?P<id>[\d]+)'] );
+		}
+		if ( isset( $endpoints['/wp/v2/statuses'] ) ) {
+			unset( $endpoints['/wp/v2/statuses'] );
+		}
+		if ( isset( $endpoints['/wp/v2/statuses/(?P<id>[\d]+)'] ) ) {
+			unset( $endpoints['/wp/v2/statuses/(?P<id>[\d]+)'] );
+		}
+		if ( isset( $endpoints['/wp/v2/comments'] ) ) {
+			unset( $endpoints['/wp/v2/comments'] );
+		}
+		if ( isset( $endpoints['/wp/v2/comments/(?P<id>[\d]+)'] ) ) {
+			unset( $endpoints['/wp/v2/comments/(?P<id>[\d]+)'] );
+		}
+		return $endpoints;
 	}
 
 }
