@@ -23,6 +23,7 @@ defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
  * Redirect All WordPress frontend requests to home, except for WP Rest API endpoints.
  * This function is also declared in Veritate API Theme as fallback and these redirection
  * will also be declared in .htaccess/.htconfig and in reverse-proxy layer (Nginx or Cloudflare)
+ * Adapted from a idea by BraadMaring at https://github.com/BraadMartin/only-rest-api .
  *
  * @since 0.1.0
  */
@@ -85,3 +86,4 @@ function veritate_rest_endpoints( $endpoints ) {
 }
 add_action( 'template_redirect', 'veritate_headless_redirect' );
 add_filter( 'rest_endpoints', 'veritate_rest_endpoints', 99 );
+add_filter(‘xmlrpc_enabled’, ‘__return_false’);
