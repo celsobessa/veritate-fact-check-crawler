@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -78,7 +77,7 @@ class Veritate_Fact_Check_Crawler {
 	public function __construct() {
 
 		$this->plugin_name = 'veritate-fact-check-crawler';
-		$this->version = '0.1.0';
+		$this->version = '0.2.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -183,7 +182,7 @@ class Veritate_Fact_Check_Crawler {
 
 		$plugin_public = new Veritate_Fact_Check_Crawler_Public( $this->get_plugin_name(), $this->get_version(), $this->get_utilities() );
 
-		$this->loader->add_action( 'template_redirect', $plugin_public, 'veritate_headless_redirect' );
+		$this->loader->add_action( 'template_redirect', $plugin_public, 'veritate_headless_redirect', 20 );
 		$this->loader->add_action( 'rest_endpoints', $plugin_public, 'veritate_rest_endpoints' );
 	}
 

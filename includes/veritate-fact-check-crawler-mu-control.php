@@ -1,13 +1,15 @@
 <?php
 /**
  * Plugin Name: Veritate - Fact Check Crawler MU Control
- * Description: Short description of your plugin here.
- * Author:      your name here
+ * Description: Must Use Plugin Functions for Veritate API, included on Veritate - Fact Check Crawler plugin
+ * Author:      Celso Bessa, WoWPerations
+ * Version:     0.1.0
  * License:     GNU General Public License v3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
- * Must Use Plugin Functions for Veritate API
+ * Must Use Plugin Functions for Veritate API, included on Veritate - Fact Check Crawler plugin
  * Copy this file to /wp-content/mu-plugins/ directory
+ *
  * @link       https://veritatecrawler.wowperations.com.br
  * @since      0.1.0
  * @package    Veritate_Fact_Check_Crawler
@@ -26,10 +28,11 @@ defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
  * Adapted from a idea by BraadMaring at https://github.com/BraadMartin/only-rest-api .
  *
  * @since 0.1.0
+ * @since uses wp_safe_redirect, uses 301 redirection and don't redirect for 404 requests.
  */
 function veritate_headless_redirect() {
-	if ( ! is_front_page() ) {
-		wp_redirect( home_url() );
+	if ( ! is_front_page() && ! is_404() ) {
+		wp_safe_redirect( home_url(), 301 );
 		exit;
 	}
 }
@@ -84,6 +87,6 @@ function veritate_rest_endpoints( $endpoints ) {
 	}
 	return $endpoints;
 }
-add_action( 'template_redirect', 'veritate_headless_redirect' );
+add_action( 'template_redirect', 'veritate_headless_redirect', 10 );
 add_filter( 'rest_endpoints', 'veritate_rest_endpoints', 99 );
-add_filter(‘xmlrpc_enabled’, ‘__return_false’);
+add_filter( 'xmlrpc_enabled',  '__return_false' );

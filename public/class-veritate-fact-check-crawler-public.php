@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The public-facing functionality of the plugin.
  *
@@ -44,8 +43,8 @@ class Veritate_Fact_Check_Crawler_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    0.1.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param string $plugin_name The name of the plugin.
+	 * @param string $version     The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
 
@@ -62,10 +61,11 @@ class Veritate_Fact_Check_Crawler_Public {
 	 * will also be declared in .htaccess/.htconfig and in reverse-proxy layer (Nginx or Cloudflare)
 	 *
 	 * @since 0.1.0
+	 * @since 0.2.0 uses wp_safe_redirect, uses 301 redirection and don't redirect for 404 requests.
 	 */
 	public function veritate_headless_redirect() {
-		if ( ! is_front_page() ) {
-			wp_redirect( home_url() );
+		if ( ! is_front_page() && ! is_404() ) {
+			wp_safe_redirect( home_url(), 301 );
 			exit;
 		}
 	}
