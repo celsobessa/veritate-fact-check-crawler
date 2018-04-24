@@ -3,7 +3,7 @@
  * Plugin Name: Veritate - Fact Check Crawler MU Control
  * Description: Must Use Plugin Functions for Veritate API, included on Veritate - Fact Check Crawler plugin
  * Author:      Celso Bessa, WoWPerations
- * Version:     0.1.0
+ * Version:     0.2.1
  * License:     GNU General Public License v3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
  * @since uses wp_safe_redirect, uses 301 redirection and don't redirect for 404 requests.
  */
 function veritate_headless_redirect() {
-	if ( ! is_front_page() && ! is_404() ) {
+	if ( ! is_front_page() ) {
 		wp_safe_redirect( home_url(), 301 );
 		exit;
 	}

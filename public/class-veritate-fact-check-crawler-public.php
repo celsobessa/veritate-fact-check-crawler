@@ -64,7 +64,7 @@ class Veritate_Fact_Check_Crawler_Public {
 	 * @since 0.2.0 uses wp_safe_redirect, uses 301 redirection and don't redirect for 404 requests.
 	 */
 	public function veritate_headless_redirect() {
-		if ( ! is_front_page() && ! is_404() ) {
+		if ( ! is_front_page() ) {
 			wp_safe_redirect( home_url(), 301 );
 			exit;
 		}
