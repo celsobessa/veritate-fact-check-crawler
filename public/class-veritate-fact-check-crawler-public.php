@@ -74,7 +74,7 @@ class Veritate_Fact_Check_Crawler_Public {
 	 * Disable undesired WP Rest API Endpoints
 	 *
 	 * Disables some unused/undesired WP Rest API endpoints.
-	 * This function is also declared in Veritate API Theme as fallback and these redirection.
+	 * This function is also declared in Veritate API Theme as fallback
 	 *
 	 * @since  0.1.0
 	 * @param  array $endpoints an array with all registered REST API Endpoints.
