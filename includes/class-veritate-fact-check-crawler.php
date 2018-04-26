@@ -66,6 +66,15 @@ class Veritate_Fact_Check_Crawler {
 	protected $utilities;
 
 	/**
+	 * An instance of plugin's common class
+	 *
+	 * @since    0.1.0
+	 * @access   protected
+	 * @var      string    $common   An instance of plugin's common class
+	 */
+	protected $common;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -77,7 +86,7 @@ class Veritate_Fact_Check_Crawler {
 	public function __construct() {
 
 		$this->plugin_name = 'veritate-fact-check-crawler';
-		$this->version = '0.2.1';
+		$this->version = '0.3.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -123,6 +132,11 @@ class Veritate_Fact_Check_Crawler {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-veritate-fact-check-crawler-utilities.php';
 
 		/**
+		 * The class responsible for common functionalites used in both public and admin areas.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-veritate-fact-check-crawler-common.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-veritate-fact-check-crawler-admin.php';
@@ -134,6 +148,8 @@ class Veritate_Fact_Check_Crawler {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-veritate-fact-check-crawler-public.php';
 
 		$this->utilities = new Veritate_Fact_Check_Crawler_Utilities( $this->get_plugin_name(), $this->get_version() );
+
+		$this->common = new Veritate_Fact_Check_Crawler_Common( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader = new Veritate_Fact_Check_Crawler_Loader();
 
@@ -165,10 +181,9 @@ class Veritate_Fact_Check_Crawler {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Veritate_Fact_Check_Crawler_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_utilities() );
+		$plugin_admin = new Veritate_Fact_Check_Crawler_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_utilities(), $this->get_common() );
 
-		// $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		// $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'rest_api_init', $plugin_admin, 'register_post_api_hooks' );
 	}
 
 	/**
@@ -180,10 +195,11 @@ class Veritate_Fact_Check_Crawler {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Veritate_Fact_Check_Crawler_Public( $this->get_plugin_name(), $this->get_version(), $this->get_utilities() );
+		$plugin_public = new Veritate_Fact_Check_Crawler_Public( $this->get_plugin_name(), $this->get_version(), $this->get_utilities(), $this->get_common() );
 
 		$this->loader->add_action( 'template_redirect', $plugin_public, 'veritate_headless_redirect', 20 );
 		$this->loader->add_action( 'rest_endpoints', $plugin_public, 'veritate_rest_endpoints' );
+		$this->loader->add_filter( 'rest_prepare_post', $plugin_public, 'rest_prepare_post', 10, 3 );
 	}
 
 	/**
@@ -230,10 +246,20 @@ class Veritate_Fact_Check_Crawler {
 	 * Retrieve the plugin utitlies.
 	 *
 	 * @since     0.1.0
-	 * @return    string    The version number of the plugin.
+	 * @return    object    Plugin utilities
 	 */
 	public function get_utilities() {
 		return $this->utilities;
+	}
+
+	/**
+	 * Retrieve the plugin common functions and methods
+	 *
+	 * @since     0.1.0
+	 * @return    object   An instance of common class holding methods and properties used in front and backend
+	 */
+	public function get_common() {
+		return $this->common;
 	}
 
 }

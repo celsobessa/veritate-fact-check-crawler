@@ -16,7 +16,7 @@
  * Plugin Name:       Veritate - Fact Check Crawler
  * Plugin URI:        https://veritatecrawler.wowperations.com.br
  * Description:       A under the hood plugin for crawling fact checking website in Brazil and adding it to WordPress. Part of the Veritate Initiative.
- * Version:           0.1.0
+ * Version:           0.3.0
  * Author:            Celso Bessa
  * Author URI:        https://veritatecrawler.wowperations.com.br
  * License:           GPL-2.0+

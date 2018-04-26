@@ -40,16 +40,39 @@ class Veritate_Fact_Check_Crawler_Public {
 	private $version;
 
 	/**
+	 * An instance of the plugin's utilities
+	 *
+	 * @since    0.3.0
+	 * @access   protected
+	 * @var      string    $utilities    An instance of the plugin's utilities.
+	 */
+	protected $utilities;
+
+	/**
+	 * An instance of plugin's common class
+	 *
+	 * @since    0.3.0
+	 * @access   protected
+	 * @var      string    $common   An instance of plugin's common class.
+	 */
+	protected $common;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    0.1.0
-	 * @param string $plugin_name The name of the plugin.
-	 * @param string $version     The version of this plugin.
+	 * @since 0.1.0
+	 * @param string $plugin_name       The name of this plugin.
+	 * @param string $version    The version of this plugin.
+	 * @since 0.3.0
+	 * @param object $utilities An instance of the plugin's utilities.
+	 * @param object $common    An instance of plugin's common class.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_name, $version, $utilities, $common ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		$this->utilities = $utilities;
+		$this->common = $common;
 
 	}
 
@@ -119,6 +142,23 @@ class Veritate_Fact_Check_Crawler_Public {
 			unset( $endpoints['/wp/v2/comments/(?P<id>[\d]+)'] );
 		}
 		return $endpoints;
+	}
+
+	/**
+	 * Filter post REST response using Veritate_Fact_Check_Crawler_Common::rest_prepare_post.
+	 *
+	 * A wrapper for Veritate_Fact_Check_Crawler_Common::rest_prepare_post, which filters
+	 * post REST API response .
+	 *
+	 * @since 0.3.0
+	 * @access public
+	 * @param object $data    The response object.
+	 * @param object $post    The original post type object.
+	 * @param object $request Request used to generate the response.
+	 * @return object $data The filtered response object.
+	 */
+	public function rest_prepare_post( $data, $post, $request ) {
+		return $this->common->rest_prepare_post( $data, $post, $request );
 	}
 
 }
