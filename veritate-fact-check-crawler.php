@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://veritate.wowperations.com.br
+ * @link              https://veritatecrawler.wowperations.com.br
  * @since             0.1.0
  * @package Veritate_Fact_Check_Crawler
  *
  * @wordpress-plugin
  * Plugin Name:       Veritate - Fact Check Crawler
- * Plugin URI:        https://veritate.wowperations.com.br
+ * Plugin URI:        https://veritatecrawler.wowperations.com.br
  * Description:       A under the hood plugin for crawling fact checking website in Brazil and adding it to WordPress. Part of the Veritate Initiative.
- * Version:           0.1.0
+ * Version:           0.3.0
  * Author:            Celso Bessa
- * Author URI:        https://veritate.wowperations.com.br
+ * Author URI:        https://veritatecrawler.wowperations.com.br
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       veritate-fact-check-crawler

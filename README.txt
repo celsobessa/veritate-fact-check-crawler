@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://veritate.wowperations.com.br/
+Donate link: https://veritatecrawler.wowperations.com.br/
 Tags: comments, spam
 Requires at least: 3.0.1
 Tested up to: 3.4
