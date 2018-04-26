@@ -161,4 +161,18 @@ class Veritate_Fact_Check_Crawler_Public {
 		return $this->common->rest_prepare_post( $data, $post, $request );
 	}
 
+	/**
+	 * Disallow all feeds
+	 *
+	 * Disallow all feeds (RSS, Atom, RDF), etc.
+	 *
+	 * @since 0.3.2
+	 * @access public
+	 * @param void $data    The response object.
+	 * @return void
+	 */
+	function disable_feed() {
+		wp_die( __( 'No feed available, please visit the <a href="'. esc_url( home_url( '/' ) ) .'">homepage</a>!', $this->plugin_name ) );
+	}
+
 }
