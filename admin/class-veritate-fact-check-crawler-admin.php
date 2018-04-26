@@ -2,7 +2,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://veritate.wowperations.com.br
+ * @link       https://veritatecrawler.wowperations.com.br
  * @since      0.1.0
  *
  * @package    Veritate_Fact_Check_Crawler
@@ -40,16 +40,39 @@ class Veritate_Fact_Check_Crawler_Admin {
 	private $version;
 
 	/**
+	 * An instance of the plugin's utilities
+	 *
+	 * @since    0.3.0
+	 * @access   protected
+	 * @var      string    $utilities    An instance of the plugin's utilities.
+	 */
+	protected $utilities;
+
+	/**
+	 * An instance of plugin's common class
+	 *
+	 * @since    0.3.0
+	 * @access   protected
+	 * @var      string    $common   An instance of plugin's common class.
+	 */
+	protected $common;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since 0.1.0
 	 * @param string $plugin_name       The name of this plugin.
 	 * @param string $version    The version of this plugin.
+	 * @since 0.3.0
+	 * @param object $utilities An instance of the plugin's utilities.
+	 * @param object $common    An instance of plugin's common class.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_name, $version, $utilities, $common ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		$this->utilities = $utilities;
+		$this->common = $common;
 
 	}
 
@@ -77,26 +100,93 @@ class Veritate_Fact_Check_Crawler_Admin {
 	}
 
 	/**
-	 * Register the JavaScript for the admin area.
+	 * Filter post REST response using Veritate_Fact_Check_Crawler_Common::rest_prepare_post.
 	 *
-	 * @since    0.1.0
+	 * A wrapper for Veritate_Fact_Check_Crawler_Common::rest_prepare_post, which filters
+	 * post REST API response .
+	 *
+	 * @since 0.3.0
+	 * @access public
+	 * @param object $data    The response object.
+	 * @param object $post    The original post type object.
+	 * @param object $request Request used to generate the response.
+	 * @return object $data The filtered response object.
 	 */
-	public function enqueue_scripts() {
+	public function rest_prepare_post( $data, $post, $request ) {
+		return $this->common->rest_prepare_post( $data, $post, $request );
+	}
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Veritate_Fact_Check_Crawler_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Veritate_Fact_Check_Crawler_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+	/**
+	 * Register new fields for post REST API response
+	 *
+	 * Register new fields for post REST API response
+	 *
+	 * @since     0.3.0
+	 * @access    public
+	 * @uses      $this->return_poi_taxonomies
+	 * @return    void
+	 */
+	public function register_post_api_hooks() {
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/veritate-fact-check-crawler-admin.js', array( 'jquery' ), $this->version, false );
+		// Add post authors custom field to REST Endpoint.
+		register_rest_field(
+			'post',
+			'post_authors',
+			array(
+				'get_callback' => function ( $object, $field_name, $request ) {
+					return $this->return_post_authors( $object );
+				},
+			)
+		);
 
+		// Add post source url custom field to REST Endpoint.
+		register_rest_field(
+			'post',
+			'source_url',
+			array(
+				'get_callback' => function ( $object, $field_name, $request ) {
+					return $this->return_source_url( $object );
+				},
+			)
+		);
+	}
+
+	/**
+	 * Return Post authors custom field.
+	 *
+	 * Return Post authors custom field for using by REST API.
+	 *
+	 * @since 0.3.0
+	 * @access public
+	 * @param object $object The rest item original object.
+	 * @return string $post_authors an string with original article authors informations.
+	 */
+	public function return_post_authors( $object ) {
+
+		$post_id = $object['id'];
+
+		$post_authors = get_post_meta( $post_id, 'authors', true );
+
+		return $post_authors;
+	}
+
+	/**
+	 * Return Post original source url field.
+	 *
+	 * Return Post original source url custom post field for using by REST API.
+	 *
+	 * @since 0.3.0
+	 * @access public
+	 * @param object $object The rest item original object.
+	 * @return string $source_url an string with original article authors informations.
+	 */
+	public function return_source_url( $object ) {
+
+		$post_id = $object['id'];
+
+		$source_url = get_post_meta( $post_id, 'source_url', true );
+
+		return $source_url;
 	}
 
 }
