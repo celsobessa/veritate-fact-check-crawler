@@ -200,6 +200,13 @@ class Veritate_Fact_Check_Crawler {
 		$this->loader->add_action( 'template_redirect', $plugin_public, 'veritate_headless_redirect', 20 );
 		$this->loader->add_action( 'rest_endpoints', $plugin_public, 'veritate_rest_endpoints' );
 		$this->loader->add_filter( 'rest_prepare_post', $plugin_public, 'rest_prepare_post', 10, 3 );
+		$this->loader->add_action( 'do_feed', $plugin_public, 'disable_feed', 1 );
+		$this->loader->add_action( 'do_feed_rdf', $plugin_public, 'disable_feed', 1 );
+		$this->loader->add_action( 'do_feed_rss', $plugin_public, 'disable_feed', 1 );
+		$this->loader->add_action( 'do_feed_rss2', $plugin_public, 'disable_feed', 1 );
+		$this->loader->add_action( 'do_feed_atom', $plugin_public, 'disable_feed', 1 );
+		$this->loader->add_action( 'do_feed_rss2_comments', $plugin_public, 'disable_feed', 1 );
+		$this->loader->add_action( 'do_feed_atom_comments', $plugin_public, 'disable_feed', 1 );
 	}
 
 	/**

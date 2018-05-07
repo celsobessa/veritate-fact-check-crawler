@@ -1,10 +1,10 @@
 # Veritate - Fact Check Crawler
 
-Looking for the english version? [Click here](README.md).
+> Looking for the english version? [Click here](README.md).
 
 Um plugin do tipo "nos bastidores" para gerenciar o indexador e API Veritate Fact Check, parte da Iniciativa Veritate.
 
-É um projeto um projeto experimental sem fins lucrativos de agregador/buscador reunindo artigos diversas agências de <strong>checagem de fatos. Os objetivos do projeto são
+É **um projeto um projeto experimental sem fins lucrativos de agregador/buscador reunindo artigos diversas agências de <strong>checagem de fatos</strong>**. Os objetivos do projeto são
 
 - Investigar, estudar e experimentar tecnologias, algoritmo, padrões de design e experiência de uso em buscas e jornalismo intermediado por algoritmo
 - Fomentar o consumo de jornalismo de qualidade e o compartilhamento de checagem de fatos e instigar o senso crítico contra notícias falsas (<em>Fake News</em>)
@@ -12,9 +12,10 @@ Um plugin do tipo "nos bastidores" para gerenciar o indexador e API Veritate Fac
 - Instigar o pensamento crítico e decisões bem informadas sobre políticas e votos.
 
 > Para mais informações, para solicitar a inclusão de um site de checagem ou solicitar exclusão de material que viole direitos autorais, entre em contato através do email veritate{arroba}wowperations[ponto]com[ponto]br
-> Projeto e Desenvolvimento: <a href="https://www.celsobessa.com.br">Celso Bessa</a>. Suporte em hospedagem e infra-estrutura: <a href="https://www.wowperations.com.br">WoWPerations</a>.
 
-## Perguntas Frequente (FAQ - Frequently Asked Questions)
+Projeto e Desenvolvimento: <a href="https://www.celsobessa.com.br">Celso Bessa</a>. Suporte em hospedagem e infra-estrutura: <a href="https://www.wowperations.com.br">WoWPerations</a>.
+
+## Perguntas Frequentes (FAQ - Frequently Asked Questions)
 
 ### Quais os veículos que são indexados por esta iniciativa
 
@@ -26,7 +27,7 @@ Envie um email para o endereço mencionado acima. Nós vamos indexar apenas site
 
 No aspecto tecnológico, nós priorizamos sites usando WordPress e que usem o markup LD+JSON para checagem de fatos. Nosso rastreador e nosso algoritmo privilegia sites rápidos, acessíveis e seguros (usando HTTPS), especialmente os acessíveis facilmente por telefone ou leitores de tela. E se você der permissão expressão para apresentarmos pequenos trechos (entre 140 e 280 caracteres) do artigo de seu site, o conteúdo será rastreado mais rapidamente e terá prioridade ao apresentarmos os resultados
 
-Como regra geral, se for jornalismo bem feito, tiver boa nota no Google Page Speed Insights e passar no teste da WCAG2.0, está bom para nós.
+Como regra geral, **se for jornalismo bem feito, tiver boa nota no Google Page Speed Insights** e passar no teste da WCAG2.0, está bom para nós.
 
 ### Esta API tira tráfego dos sites de checagem?
 
