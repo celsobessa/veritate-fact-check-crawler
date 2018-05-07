@@ -1,10 +1,10 @@
 # Veritate - Fact Check Crawler
 
-Procurando a versão em português? [Clique aqui](LEIAME.md).
+> Procurando a versão em português? [Clique aqui](LEIAME.md).
 
 A under the hood plugin for managing the Veritate Fact Check Crawler and API, part of the Veritate Initiative.
 
-This is an experimental project, a proof of concept for a Fact Check crawler, aggregator and API focused on Brazilian news andp politics. The project goals are:
+This is *an experimental project, a proof of concept for a Fact Check crawler*, aggregator and API focused on Brazilian news and politics. The project goals are:
 
 - Investigate, study and experiment with technologia, algorhythms, UX and design patters for improve algorhythm assisted journalism.
 - Improve access to high quality journalism
@@ -12,7 +12,8 @@ This is an experimental project, a proof of concept for a Fact Check crawler, ag
 - Instigate critical thinking and informed decisions about politics and votes
 
 > For more information, suggestions for fact check sites or to ask for removal of content violating copyright laws, please, send an email to veritate{at}wowperations[dot]com[dot]br
-> Developed by [Celso Bessa](https://www.celsobessa.com.br) with infrastructure support from [WoWPerations](https://www.wowperations.com.br)
+
+Developed by [Celso Bessa](https://www.celsobessa.com.br) with infrastructure support from [WoWPerations](https://www.wowperations.com.br)
 
 ## FAQ - Frequently Asked Questions
 
