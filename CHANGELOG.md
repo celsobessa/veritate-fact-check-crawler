@@ -1,7 +1,7 @@
 # Changelog
 Theme Name:  Veritate - Fact Check Crawler
 Description: A under the hood plugin for managing the Veritate Fact Check Crawler and API, part of the Veritate Initiative.
-Version:     0.3.1
+Version:     0.4.0
 Author:      Celso Bessa
 Author URI:  https://www.celsobessa.com.br
 License:     GPL-2.0+
