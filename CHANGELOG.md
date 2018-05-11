@@ -10,10 +10,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/)
 
-## 0.4.0 - [2018-04-26] WIP
+## 0.4.0 - [2018-05-11] WIP
 
 ### Added
 - Function to remove all standard WordPress feeds for performance reasons
+
+### Fixed
+- original urls not present in REST API response
 
 ## 0.3.1 - [2018-04-26]
 
