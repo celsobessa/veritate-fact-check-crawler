@@ -2,16 +2,16 @@
 
 > Looking for the english version? [Click here](README.md).
 
-Um plugin do tipo "nos bastidores" para gerenciar o indexador e API Veritate Fact Check, parte da Iniciativa Veritate.
+Um plugin do tipo "nos bastidores" para gerenciar o Índice Públic de checagens de fatos da Iniciativa Veritate, **um projeto um projeto experimental sem fins lucrativos de agregador/buscador reunindo artigos diversas agências de <strong>checagem de fatos</strong>**.
 
-É **um projeto um projeto experimental sem fins lucrativos de agregador/buscador reunindo artigos diversas agências de <strong>checagem de fatos</strong>**. Os objetivos do projeto são
+Os objetivos do projeto são
 
 - Investigar, estudar e experimentar tecnologias, algoritmo, padrões de design e experiência de uso em buscas e jornalismo intermediado por algoritmo
 - Fomentar o consumo de jornalismo de qualidade e o compartilhamento de checagem de fatos e instigar o senso crítico contra notícias falsas (<em>Fake News</em>)
 - Instigar o compartilhamento de checagens de fatos e o pensamento crítico contra notícias falsas
 - Instigar o pensamento crítico e decisões bem informadas sobre políticas e votos.
 
-> Para mais informações, para solicitar a inclusão de um site de checagem ou solicitar exclusão de material que viole direitos autorais, entre em contato através do email veritate{arroba}wowperations[ponto]com[ponto]br
+> Para mais informações sobre a Iniciativa Veritate ou para sugerir novos veículos de checagem de fatos, por favor, verifique o **[repositório oficial do projeto no Github](https://github.com/celsobessa/veritate)**. Para reportar bugs ou questões sobre este plugin e sobre a API do Índice Público, por favor, verique o [repositório do plugin](https://github.com/celsobessa/veritate-fact-check-crawler). Para solicitar a remoção de conteúos ou outras dúvidas, por favor, envie mensagem para o email veritate{arroba}wowperations[ponto]com[ponto]br
 
 Projeto e Desenvolvimento: <a href="https://www.celsobessa.com.br">Celso Bessa</a>. Suporte em hospedagem e infra-estrutura: <a href="https://www.wowperations.com.br">WoWPerations</a>.
 
@@ -23,7 +23,14 @@ Neste momento, apenas [Agência Lupa](http://piaui.folha.uol.com.br/lupa/), [Ag�
 
 ### Como posso sugerir um veículo ou ter meu veículo adicionado?
 
-Envie um email para o endereço mencionado acima. Nós vamos indexar apenas sites respeitados ou com bom jornalismo, de acordo com nosso conselho editorial. Temos o plano de criar um guia editorial, mas não sabemos quando publicaremos.
+Se você quer sugerir algum veículo para ser indexado, abra uma "issue" [no repositório oficial](https://github.com/celsobessa/veritate/issues) com as seguintes informações:
+
+- Nome do Veículo
+- URL do veículo
+- URL da seção de checagens (se diferente da URL principal)
+- Sua relação com o veículo (leitor, autor, editor, publisher, etc)
+
+Você também pode enviar um email para o endereço mencionado acima com as mesmas informações. Nós vamos indexar apenas sites respeitados ou com bom jornalismo, de acordo com nosso conselho editorial. Temos o plano de criar um guia editorial, mas ainda não sabemos quando ele será publicado.
 
 No aspecto tecnológico, nós priorizamos sites usando WordPress e que usem o markup LD+JSON para checagem de fatos. Nosso rastreador e nosso algoritmo privilegia sites rápidos, acessíveis e seguros (usando HTTPS), especialmente os acessíveis facilmente por telefone ou leitores de tela. E se você der permissão expressão para apresentarmos pequenos trechos (entre 140 e 280 caracteres) do artigo de seu site, o conteúdo será rastreado mais rapidamente e terá prioridade ao apresentarmos os resultados
 
@@ -43,7 +50,7 @@ Não, é um experimento sem fins lucrativos. Temos a ideia de fazer algo maior, 
 
 ## Histórico de versões / Changelog
 
-Veja o arquivo [CHANGELOG.md](CHANGELOG.md).
+Veja o arquivo [CHANGELOG.md](CHANGELOG.md) no [repositório do plugin no Github](https://github.com/celsobessa/veritate-fact-check-crawler).
 
 ## Como ajudar o projeto
 

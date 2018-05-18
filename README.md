@@ -2,18 +2,18 @@
 
 > Procurando a versão em português? [Clique aqui](LEIAME.md).
 
-A under the hood plugin for managing the Veritate Fact Check Crawler and API, part of the Veritate Initiative.
+A under the hood plugin for managing the Veritate Fact Check [Public Index](http://veritatecrawler.wowperations.com.br/), a component of the [Veritate Initiative](https://github.com/celsobessa/veritate).
 
 This is *an experimental project, a proof of concept for a Fact Check crawler*, aggregator and API focused on Brazilian news and politics. The project goals are:
 
-- Investigate, study and experiment with technologia, algorhythms, UX and design patters for improve algorhythm assisted journalism.
+- Investigate, study and experiment with technologia, algorithms, UX and design patters for improve algorhythm assisted journalism.
 - Improve access to high quality journalism
 - Instigate fact checking sharing and critical thinking against fake news
 - Instigate critical thinking and informed decisions about politics and votes
 
-> For more information, suggestions for fact check sites or to ask for removal of content violating copyright laws, please, send an email to veritate{at}wowperations[dot]com[dot]br
+> For more information about Veritate Initiative and suggestions for new fact check outlets, please, check the [project's official repository on Github](https://github.com/celsobessa/veritate). For reporting bugs or questions about this plugin or the Public Index API , please, check the [official plugin repository](https://github.com/celsobessa/veritate-fact-check-crawler). For content removal and other questions, please, send an email to veritate{at}wowperations[dot]com[dot]br.
 
-Developed by [Celso Bessa](https://www.celsobessa.com.br) with infrastructure support from [WoWPerations](https://www.wowperations.com.br)
+Developed by [Celso Bessa](https://www.celsobessa.com.br) with infrastructure support from [WoWPerations](https://www.wowperations.com.br) the project
 
 ## FAQ - Frequently Asked Questions
 
@@ -45,7 +45,7 @@ No, this is a non-profit experiment. We want to make something bigger, but proba
 
 ## Version History / Changelog
 
-Check [CHANGELOG.md](CHANGELOG.md) file.
+Check [CHANGELOG.md](CHANGELOG.md) file in this [plugin official repository on Github](https://github.com/celsobessa/veritate-fact-check-crawler).
 
 ## Contributing
 

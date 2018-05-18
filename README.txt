@@ -9,11 +9,13 @@ Stable tag: 40.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A under the hood plugin for managing the Veritate Fact Check Crawler and API, part of the Veritate Initiative.
+A under the hood plugin for managing the Veritate Initiative fact check <a href="http://veritatecrawler.wowperations.com.br/"?Public Index</a>, a component of the <a href="https://github.com/celsobessa/veritate">Veritate Initiative</a>, <em>an experimental project</em> of a Fact Check crawler, aggregator and API focused on Brazilian news.
 
 == Description ==
 
-This is an experimental project, a proof of concept for a Fact Check crawler, aggregator and API focused on Brazilian news andp politics. The project goals are:
+Veritate Initiative is an experimental project, a proof of concept for a fact check crawler, a public index with a REST API, and a aggregator/search engines focused on Brazilian news and politics. You can learn more about it in the [project Wiki at Github](https://github.com/celsobessa/veritate/wiki).
+
+The project goals are:
 
 - Investigate, study and experiment with technologia, algorhythms, UX and design patters for improve algorhythm assisted journalism.
 - Improve access to high quality journalism
@@ -35,7 +37,14 @@ Right now, just [Agência Lupa](http://piaui.folha.uol.com.br/lupa/), [Agência 
 
 = How can my fact check outlet be indexed? =
 
-Send an email (the address is above) with the outlet link. We will index only reputable and/or trustworth outlets according to our editorial. An editorial guideline is on roadmap , but we don't know when it will be published.
+You must open an issue [at the project repository](https://github.com/celsobessa/veritate/issues) with the following information
+
+- Outlet name
+- Outlet URL
+- Fact Checking section URL (if different from the main URL)
+- You Relationship with the oulet (reader, author, editor, publisher, etc)
+
+You can also send an email (the address is above) with the required information.  We will index only reputable and/or trustworth outlets according to our editorial. An editorial guideline is on roadmap , but we don't know when it will be published.
 
 In the technological side, we give priority to websites using WordPress and using the Fact Check schema in a LD+JSON markup. Our crawler and algorithms also prefer faster, accessible and secure (HTTPS) websites, specially those easily accessible by mobile phones and screenreaders.
 

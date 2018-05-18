@@ -18,6 +18,9 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 ### Fixed
 - original urls not present in REST API response
 
+### Changed
+- Improved README.md, LEIAME.md and README.txt files
+
 ## 0.3.1 - [2018-04-26]
 
 ### Added
