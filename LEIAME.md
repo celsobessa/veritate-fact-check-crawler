@@ -2,18 +2,20 @@
 
 > Looking for the english version? [Click here](README.md).
 
-Um plugin do tipo "nos bastidores" para gerenciar o Índice Públic de checagens de fatos da Iniciativa Veritate, **um projeto um projeto experimental sem fins lucrativos de agregador/buscador reunindo artigos diversas agências de <strong>checagem de fatos</strong>**.
+Um plugin do tipo "nos bastidores" para gerenciar o [Índice Público](https://veritatecrawler.wowperations.com.br/) de checagens de fatos da Iniciativa Veritate, **um projeto um projeto experimental sem fins lucrativos de agregador/buscador reunindo artigos diversas agências de <strong>checagem de fatos</strong>**.
 
-Os objetivos do projeto são
+## Sobre a Iniciativa Veritate
 
-- Investigar, estudar e experimentar tecnologias, algoritmo, padrões de design e experiência de uso em buscas e jornalismo intermediado por algoritmo
-- Fomentar o consumo de jornalismo de qualidade e o compartilhamento de checagem de fatos e instigar o senso crítico contra notícias falsas (<em>Fake News</em>)
-- Instigar o compartilhamento de checagens de fatos e o pensamento crítico contra notícias falsas
-- Instigar o pensamento crítico e decisões bem informadas sobre políticas e votos.
+Idealizado pelo desenvolvedor <a href="https://www.celsobessa.com.br">Celso Bessa</a>, com suporte em hospedagem e infra-estrutura: <a href="https://www.wowperations.com.br">WoWPerations</a>, a Iniciativa Veritate tem como missão fortalecer o jornalismo de checagem de fatos no Brasil:
+
+- Incentivar o consumo de jornalismo de qualidade
+- Estimular o compartilhamento de checagens de fatos
+- Instigar o senso crítico a respeito de notícias falsas (_Fake News_)
+- Fornecer ferramentas que ajude as pessoas a tomar decisões baseadas em informações verídicas
+- Pesquisar, experimentar, desenvolver e divulgar tecnologias, algoritmos, padrões de design e melhores práticas para jornalismo digital.
+
 
 > Para mais informações sobre a Iniciativa Veritate ou para sugerir novos veículos de checagem de fatos, por favor, verifique o **[repositório oficial do projeto no Github](https://github.com/celsobessa/veritate)**. Para reportar bugs ou questões sobre este plugin e sobre a API do Índice Público, por favor, verique o [repositório do plugin](https://github.com/celsobessa/veritate-fact-check-crawler). Para solicitar a remoção de conteúos ou outras dúvidas, por favor, envie mensagem para o email veritate{arroba}wowperations[ponto]com[ponto]br
-
-Projeto e Desenvolvimento: <a href="https://www.celsobessa.com.br">Celso Bessa</a>. Suporte em hospedagem e infra-estrutura: <a href="https://www.wowperations.com.br">WoWPerations</a>.
 
 ## Perguntas Frequentes (FAQ - Frequently Asked Questions)
 

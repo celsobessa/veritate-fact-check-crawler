@@ -2,18 +2,41 @@
 
 > Procurando a versão em português? [Clique aqui](LEIAME.md).
 
-A under the hood plugin for managing the Veritate Fact Check [Public Index](http://veritatecrawler.wowperations.com.br/), a component of the [Veritate Initiative](https://github.com/celsobessa/veritate).
+A under the hood plugin for managing the Veritate Fact Check [Public Index](https://veritatecrawler.wowperations.com.br/), a component of the [Veritate Initiative](https://github.com/celsobessa/veritate), an experimental project with the mission of strenghtening _fact checing_ in Brazil. Comprised by an [Crawler/Indexer](#crawler-indexer), [Public Index API](public-index-api) and **Fact Check** [Aggregator/Search](aggregator-search) for Brazilian news and politics.
 
-This is *an experimental project, a proof of concept for a Fact Check crawler*, aggregator and API focused on Brazilian news and politics. The project goals are:
+## About Veritate Initiative
 
-- Investigate, study and experiment with technologia, algorithms, UX and design patters for improve algorhythm assisted journalism.
+Developed by [Celso Bessa](https://www.celsobessa.com.br) with infrastructure support from [WoWPerations](https://www.wowperations.com.br), Veritate Initiative is an experimental project with the mission of strenghtening _fact checing_ in Brazil. Comprised by an [Crawler/Indexer](#crawler-indexer), [Public Index API](public-index-api) and **Fact Check** [Aggregator/Search](aggregator-search) for Brazilian news and politics.
+
+- Research, experiment, develop and spread technologies, algorithms, design patterns and best practices for the improvement of digital journalism.
 - Improve access to high quality journalism
-- Instigate fact checking sharing and critical thinking against fake news
+- Instigate fact checking sharing and critical thinking against _fake news_
+- To offer tools for better decision making
 - Instigate critical thinking and informed decisions about politics and votes
 
-> For more information about Veritate Initiative and suggestions for new fact check outlets, please, check the [project's official repository on Github](https://github.com/celsobessa/veritate). For reporting bugs or questions about this plugin or the Public Index API , please, check the [official plugin repository](https://github.com/celsobessa/veritate-fact-check-crawler). For content removal and other questions, please, send an email to veritate{at}wowperations[dot]com[dot]br.
+You can learn more about the initiative in the official repository at **[GitHub](https://github.com/celsobessa/veritate/)**.
 
-Developed by [Celso Bessa](https://www.celsobessa.com.br) with infrastructure support from [WoWPerations](https://www.wowperations.com.br) the project
+### Veritate Overview
+
+![A Diagram with Veritate Inatiative Overview 0.1.0](images/veritate-overview-diagram-0.1.0.png)
+
+> If you understand brazilian portuguese, there is a *[Wiki](https://github.com/celsobessa/veritate/wiki)* with more in-depth information
+
+### Crawler/Indexer
+
+It will crawl, index, evaluate and organize fact check article published in specialized third party websites.
+
+Right now we are using a SaaS provider for crawling and scrapping and a tool of our own for evaluation and organization. But we may move crawling/scrapping for our own infrastructure in the future and eventually we will make our own evaluation tools public.
+
+### Public Index API
+
+A public index with information about the index fact checking articles for consumption by third party systems through an REST API with information returned in JSON.
+
+This is the API we are using for our aggregator/search and intended for use by third parties. As an example, a developer could create a WordPress plugin which suggested fact checking articles for certain keywords used by an blog editor.
+
+### Aggregator
+
+A search tool for people looking for fact checking. The idea is that people find all articles related to a keyword. For example, someone looking for facts about the term "Lava Jato" would find a list with several articles about Operation Lava Jato in all indexed media outlets and by clicking in the links, would read the content in the original websites
 
 ## FAQ - Frequently Asked Questions
 

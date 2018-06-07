@@ -9,21 +9,19 @@ Stable tag: 40.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A under the hood plugin for managing the Veritate Initiative fact check <a href="http://veritatecrawler.wowperations.com.br/"?Public Index</a>, a component of the <a href="https://github.com/celsobessa/veritate">Veritate Initiative</a>, <em>an experimental project</em> of a Fact Check crawler, aggregator and API focused on Brazilian news.
+A under the hood plugin for managing the Veritate Fact Check [Public Index](https://veritatecrawler.wowperations.com.br/), a component of the [Veritate Initiative](https://github.com/celsobessa/veritate), an experimental project with the mission of strenghtening _fact checing_ in Brazil. Comprised by an [Crawler/Indexer](https://github.com/celsobessa/veritate/blob/master/README-EN.md#crawler-indexer), [Public Index API](https://github.com/celsobessa/veritate/blob/master/README-EN.md#public-index-api) and **Fact Check** [Aggregator/Search](https://github.com/celsobessa/veritate/blob/master/README-EN.md#aggregator-search) for Brazilian news and politics.
 
 == Description ==
 
-Veritate Initiative is an experimental project, a proof of concept for a fact check crawler, a public index with a REST API, and a aggregator/search engines focused on Brazilian news and politics. You can learn more about it in the [project Wiki at Github](https://github.com/celsobessa/veritate/wiki).
+Developed by [Celso Bessa](https://www.celsobessa.com.br) with infrastructure support from [WoWPerations](https://www.wowperations.com.br), Veritate Initiative is an experimental project with the mission of strenghtening _fact checing_ in Brazil. Comprised by an [Crawler/Indexer](https://github.com/celsobessa/veritate/blob/master/README-EN.md#crawler-indexer), [Public Index API](https://github.com/celsobessa/veritate/blob/master/README-EN.md#public-index-api) and **Fact Check** [Aggregator/Search](https://github.com/celsobessa/veritate/blob/master/README-EN.md#aggregator-search) for Brazilian news and politics.
 
-The project goals are:
-
-- Investigate, study and experiment with technologia, algorhythms, UX and design patters for improve algorhythm assisted journalism.
+- Research, experiment, develop and spread technologies, algorithms, design patterns and best practices for the improvement of digital journalism.
 - Improve access to high quality journalism
-- Instigate fact checking sharing and critical thinking against fake news
+- Instigate fact checking sharing and critical thinking against _fake news_
+- To offer tools for better decision making
 - Instigate critical thinking and informed decisions about politics and votes
 
-> For more information, suggestions for fact check sites or to ask for removal of content violating copyright laws, please, send an email to veritate{at}wowperations[dot]com[dot]br
-> Developed by [Celso Bessa](https://www.celsobessa.com.br) with infrastructure support from [WoWPerations](https://www.wowperations.com.br)
+You can learn more about the initiative in the official repository at **[GitHub](https://github.com/celsobessa/veritate/)**.
 
 == Installation ==
 
