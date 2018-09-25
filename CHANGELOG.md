@@ -21,6 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ### Fixed
 - original urls not present in REST API response
+- Custom 404 error page on .htaccess
 
 ### Changed
 - Improved README.md, LEIAME.md and README.txt files
