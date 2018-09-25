@@ -47,6 +47,13 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
+ * Plugin constants.
+ */
+define( 'VERITATE_API_VERSION', '0.4.0' );
+define( 'VERITATE_API_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'VERITATE_API_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-veritate-fact-check-crawler-activator.php
  */

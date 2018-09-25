@@ -184,7 +184,7 @@ class Veritate_Fact_Check_Crawler_Admin {
 
 		$post_id = $object['id'];
 
-		$source_url = get_post_meta( $post_id, 'source_url', true );
+		$source_url = get_post_meta( $post_id, 'url', true );
 
 		return $source_url;
 	}
