@@ -10,16 +10,22 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/)
 
-## 0.4.0 - [2018-05-11] WIP
+## 0.4.0 - 2018-09-25
 
 ### Added
 - Function to remove all standard WordPress feeds for performance reasons
+- Suggested Apache .htaccess rules
+- Suggested robots.txt file
+- Plugins constants: `VERITATE_API_VERSION`,`VERITATE_API_PLUGIN_PATH` and `VERITATE_API_PLUGIN_URL`
+- Discourage Search Engines indexing: discourage_search_engines method
 
 ### Fixed
 - original urls not present in REST API response
 
 ### Changed
 - Improved README.md, LEIAME.md and README.txt files
+- meta robots tag value changed to `noindex,nofollow` on 404.php
+- meta robots tag is can be managed by using the `veritate_theme_robots` action hook.
 
 ## 0.3.1 - [2018-04-26]
 

@@ -86,7 +86,7 @@ class Veritate_Fact_Check_Crawler {
 	public function __construct() {
 
 		$this->plugin_name = 'veritate-fact-check-crawler';
-		$this->version = '0.3.1';
+		$this->version = VERITATE_API_VERSION;
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -207,6 +207,8 @@ class Veritate_Fact_Check_Crawler {
 		$this->loader->add_action( 'do_feed_atom', $plugin_public, 'disable_feed', 1 );
 		$this->loader->add_action( 'do_feed_rss2_comments', $plugin_public, 'disable_feed', 1 );
 		$this->loader->add_action( 'do_feed_atom_comments', $plugin_public, 'disable_feed', 1 );
+		$this->loader->add_action( 'posts_selection', $plugin_public, 'discourage_search_engines' );
+
 	}
 
 	/**

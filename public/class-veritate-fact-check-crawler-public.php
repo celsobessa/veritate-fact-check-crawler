@@ -168,11 +168,42 @@ class Veritate_Fact_Check_Crawler_Public {
 	 *
 	 * @since 0.3.2
 	 * @access public
-	 * @param void $data    The response object.
 	 * @return void
 	 */
 	function disable_feed() {
-		wp_die( __( 'No feed available, please visit the <a href="'. esc_url( home_url( '/' ) ) .'">homepage</a>!', $this->plugin_name ) );
+		wp_die( __( 'No feed available, please visit the <a href="'. esc_url( home_url( '/' ) ) .'">homepage</a>!', $this->plugin_name ) ); //phpcs:ignore
+	}
+
+	/**
+	 * Discourage search engines indexing, except for home.
+	 *
+	 * This Discourage search engine all URLs indexing, except for home. By default,
+	 * even if the site is set to public, only the home page will be public. This
+	 * behavior can be changed by using the `veritate_discourage_search_engines`
+	 * action hook to conditinally add and/or removing the wp_no_robots function.
+	 * Note that this function may not be used depending on the theme used by the install.
+	 *
+	 * @since  0.4.0
+	 * @uses wp_no_robots
+	 */
+	function discourage_search_engines() {
+		if ( is_admin() ) {
+			return;
+		}
+
+		// if the blog is public, only the homepage is public.
+		if ( '1' == get_option( 'blog_public' ) ) {
+
+			if ( ! is_home() && ! is_front_page() ) {
+				add_action( 'wp_head', 'wp_no_robots', 1 );
+				add_action( 'veritate_theme_robots', 'wp_no_robots', 1 );
+			}
+		} else {
+			add_action( 'veritate_theme_robots', 'wp_no_robots', 1 );
+		}
+
+		// hook for overriding the above rules.
+		do_action( 'veritate_discourage_search_engines' );
 	}
 
 }
